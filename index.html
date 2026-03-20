@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My First Website</title>
+    <title>Hotel Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin-top: 10px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+    <h1>Check Menu Item Availability</h1>
+    <p>Enter a dish name to see if it is available:</p>
+    <input type="text" id="dishInput" placeholder="Enter dish name">
+    <button onclick="checkAvailability()">Check</button>
+    <p id="result"></p>
 
-<h1>Welcome to my site</h1>
-<p>This is my first website, Karthi.</p>
+    <script>
+        // Define a list of available menu items
+        const menuItems = ["Idli", "Dosa", "Vada", "Pongal", "Uttapam", "Sambar", "Rice"];
 
+        function checkAvailability() {
+            const input = document.getElementById('dishInput').value.trim();
+            const result = document.getElementById('result');
+            
+            if (menuItems.includes(input)) {
+                result.textContent = input + " is available!";
+                result.style.color = 'green';
+            } else {
+                result.textContent = input + " is not available.";
+                result.style.color = 'red';
+            }
+        }
+    </script>
 </body>
 </html>
